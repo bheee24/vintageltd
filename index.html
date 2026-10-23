@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ee">
+  <meta name="description" content="Thoughtful, personal home care that helps you or someone you love feel safe, supported and at home.">
+  <title>Vintageconcept Ltd | Professional care brought to your home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #9eae96;
+      --sage-light: #e5e9df;
+      --gold: #c5a66b;
+      --gold-light: #eee4d1;
+      --ivory: #f7f5ee;
+      --paper: #fffefa;
+      --forest: #203b31;
+      --forest-soft: #52685b;
+      --muted: #737970;
+      --line: rgba(32, 59, 49, .14);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ivory); color: var(--forest); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .wrap { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--forest-soft); font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+    .serif { font-family: var(--serif); font-weight: 500; letter-spacing: -.045em; }
+    .button { display: inline-flex; min-height: 50px; justify-content: center; align-items: center; gap: 11px; padding: 0 23px; border: 1px solid var(--forest); border-radius: 3px; background: var(--forest); color: var(--paper); font-size: 12px; font-weight: 700; letter-spacing: .04em; transition: .2s ease; cursor: pointer; }
+    .button:hover { background: #2d5142; border-color: #2d5142; transform: translateY(-2px); }
+    .button svg { width: 15px; height: 15px; }
+    .button--outline { background: transparent; color: var(--forest); }
+    .button--outline:hover { color: var(--paper); }
+    .announcement { padding: 10px 16px; background: var(--forest); color: #f6f3e9; text-align: center; font-size: 10px; letter-spacing: .1em; }
+    .announcement a { color: #e2cb9b; text-decoration: underline; text-underline-offset: 3px; }
+    header { position: relative; z-index: 5; background: var(--ivory); }
+    .nav { min-height: 100px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; gap: 11px; align-items: center; }
+    .brand-logo { display: block; width: 132px; height: 88px; object-fit: contain; mix-blend-mode: multiply; }
+    .nav-links { display: flex; align-items: center; gap: 35px; color: #43564b; font-size: 11px; font-weight: 600; }
+    .nav-links a:not(.button):hover { color: #9b7d47; }
+    .nav-links .button { min-height: 43px; padding-inline: 17px; font-size: 10px; }
+    .menu-toggle { display: none; border: 0; background: none; color: var(--forest); cursor: pointer; }
+    .hero { position: relative; overflow: hidden; padding: 59px 0 76px; }
+    .hero::after { position: absolute; z-index: 0; top: -180px; right: -250px; width: 650px; height: 650px; border: 1px solid rgba(197,166,107,.2); border-radius: 50%; content: ''; pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 70px; }
+    .hero-copy { padding: 15px 0 25px; }
+    .hero h1 { max-width: 590px; margin: 21px 0 20px; font-size: clamp(48px, 6vw, 76px); line-height: 1.06; }
+    .hero h1 em { color: #83947b; font-style: normal; }
+    .hero-copy > p { max-width: 450px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .hero-actions { display: flex; align-items: center; gap: 23px; margin-top: 29px; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; }
+    .text-link svg { width: 14px; height: 14px; transition: transform .2s ease; }
+    .text-link:hover svg { transform: translateX(4px); }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 44px; color: var(--muted); font-size: 10px; }
+    .avatar-stack { display: flex; padding-left: 5px; }
+    .avatar-stack img { width: 29px; height: 29px; margin-left: -5px; border: 2px solid var(--ivory); border-radius: 50%; }
+    .hero-note strong { color: var(--forest); }
+    .hero-visual { position: relative; min-height: 485px; }
+    .hero-photo { position: absolute; top: 0; right: 18px; width: 85%; height: 435px; border-radius: 48% 48% 5px 5px; object-position: center; }
+    .photo-outline { position: absolute; top: 15px; right: 0; width: 85%; height: 435px; border: 1px solid var(--gold); border-radius: 48% 48% 5px 5px; }
+    .care-card { position: absolute; right: -3px; bottom: 1px; width: 226px; padding: 18px 19px; background: var(--paper); box-shadow: 0 12px 40px rgba(32,59,49,.12); }
+    .care-card-top { display: flex; justify-content: space-between; align-items: center; }
+    .care-card-icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--sage-light); }
+    .care-card-icon svg { width: 17px; }
+    .care-card .stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+    .care-card p { margin: 13px 0 8px; font-family: var(--serif); font-size: 16px; line-height: 1.45; }
+    .care-card small { color: var(--muted); font-size: 9px; }
+    .floating-tag { position: absolute; bottom: 68px; left: -14px; display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: var(--forest); color: white; font-size: 10px; font-weight: 600; box-shadow: 0 8px 22px rgba(32,59,49,.18); }
+    .floating-tag span { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 50%; background: rgba(255,255,255,.13); color: #e2cb9b; }
+    .floating-tag svg { width: 13px; }
+    .trust-strip { background: var(--sage-light); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); padding: 26px 0; }
+    .trust-item { display: flex; justify-content: center; align-items: center; gap: 12px; border-right: 1px solid rgba(32,59,49,.16); }
+    .trust-item:last-child { border: 0; }
+    .trust-item svg { flex: 0 0 auto; width: 20px; height: 20px; color: #71846d; }
+    .trust-item span { font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+    section.content-section { padding: 105px 0; }
+    .section-heading { max-width: 570px; margin: 0 auto 46px; text-align: center; }
+    .section-heading .eyebrow { justify-content: center; }
+    .section-heading h2 { margin: 15px 0 13px; font-size: clamp(36px, 4vw, 51px); line-height: 1.15; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .service-card { min-height: 250px; padding: 25px 22px 22px; border: 1px solid var(--line); background: rgba(255,254,250,.56); transition: .25s ease; }
+    .service-card:hover { transform: translateY(-5px); background: var(--paper); box-shadow: 0 16px 35px rgba(32,59,49,.08); }
+    .service-icon { display: grid; width: 44px; height: 44px; place-items: center; margin-bottom: 28px; border-radius: 50%; background: var(--sage-light); color: var(--forest); }
+    .service-icon svg { width: 21px; height: 21px; }
+    .service-card h3 { margin: 0 0 9px; font-family: var(--serif); font-size: 19px; font-weight: 500; }
+    .service-card p { min-height: 50px; margin: 0 0 18px; color: var(--muted); font-size: 10px; line-height: 1.7; }
+    .service-card .text-link { font-size: 10px; }
+    .about { background: #e9ece4; }
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 85px; }
+    .about-visual { position: relative; min-height: 465px; }
+    .about-photo { width: 82%; height: 440px; border-radius: 4px; }
+    .about-accent { position: absolute; z-index: 0; right: 0; bottom: 0; width: 70%; height: 83%; border: 1px solid var(--gold); }
+    .about-photo { position: relative; z-index: 1; }
+    .about-stamp { position: absolute; z-index: 2; right: 0; bottom: 27px; display: grid; width: 112px; height: 112px; place-items: center; border: 7px solid #e9ece4; border-radius: 50%; background: var(--forest); color: var(--paper); text-align: center; }
+    .about-stamp strong { font-family: var(--serif); font-size: 29px; font-weight: 500; line-height: 1; }
+    .about-stamp span { margin-top: -17px; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; }
+    .about-copy h2 { margin: 17px 0; font-size: clamp(36px, 4vw, 50px); line-height: 1.15; }
+    .about-copy > p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    .about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; margin: 27px 0 28px; }
+    .about-point { display: flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 600; }
+    .about-point svg { flex: 0 0 auto; width: 16px; height: 16px; color: #809276; }
+    .quote-section { text-align: center; }
+    .quote-mark { color: var(--gold); font-family: var(--serif); font-size: 75px; line-height: .8; }
+    blockquote { max-width: 760px; margin: 23px auto; font-family: var(--serif); font-size: clamp(26px, 3.3vw, 39px); line-height: 1.45; letter-spacing: -.025em; }
+    .quote-by { color: var(--muted); font-size: 10px; }
+    .quote-by strong { color: var(--forest); }
+    .cta { padding: 65px 0; background: var(--forest); color: var(--paper); }
+    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .cta .eyebrow { color: #c9d2c5; }
+    .cta h2 { max-width: 590px; margin: 13px 0 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.14; }
+    .cta .button { flex: 0 0 auto; border-color: var(--gold); background: var(--gold); color: var(--forest); }
+    .cta .button:hover { border-color: #d5bc8e; background: #d5bc8e; }
+    .contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 85px; }
+    .contact-copy h2 { margin: 15px 0; font-size: 46px; line-height: 1.1; }
+    .contact-copy p { max-width: 380px; color: var(--muted); font-size: 12px; line-height: 1.85; }
+    .contact-detail { display: flex; gap: 12px; align-items: center; margin-top: 22px; font-size: 11px; font-weight: 600; }
+    .contact-detail svg { width: 17px; color: #8a9a81; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field--full { grid-column: 1/-1; }
+    .field label { color: var(--forest-soft); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--forest); outline: none; font-size: 11px; }
+    .field input, .field select { height: 45px; padding: 0 12px; }
+    .field textarea { min-height: 82px; padding: 12px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--sage); box-shadow: 0 0 0 2px rgba(158,174,150,.2); }
+    .contact-form .button { justify-self: start; }
+    #form-status { grid-column: 1/-1; min-height: 18px; margin: 0; color: var(--forest-soft); font-size: 11px; }
+    footer { padding: 31px 0; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-inner p, .footer-links { margin: 0; color: var(--muted); font-size: 9px; }
+    .footer-links { display: flex; gap: 23px; }
+    .footer-links a:hover { color: var(--forest); }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 900px) {
+      .wrap { width: min(100% - 44px, 700px); }
+      .nav-links { gap: 19px; }
+      .hero-grid { gap: 35px; }
+      .hero-visual { min-height: 415px; }
+      .hero-photo, .photo-outline { height: 375px; }
+      .about-grid { gap: 45px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact { gap: 45px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: calc(100% - 38px); }
+      .announcement { font-size: 9px; }
+      .nav { min-height: 72px; }
+      .brand-logo { width: 105px; height: 70px; }
+      .menu-toggle { display: block; padding: 8px; }
+      .menu-toggle svg { display: block; width: 23px; height: 23px; }
+      .nav-links { position: absolute; top: 72px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 10px 20px 22px; border-bottom: 1px solid var(--line); background: var(--ivory); box-shadow: 0 12px 20px rgba(32,59,49,.08); }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a:not(.button) { padding: 13px 4px; border-bottom: 1px solid var(--line); }
+      .nav-links .button { margin-top: 14px; }
+      .hero { padding: 42px 0 46px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 29px; }
+      .hero h1 { max-width: 450px; font-size: clamp(48px, 13vw, 68px); }
+      .hero-copy > p { font-size: 13px; }
+      .hero-note { margin-top: 28px; }
+      .hero-visual { width: min(100%, 440px); min-height: 405px; margin: 0 auto; }
+      .hero-photo, .photo-outline { height: 365px; }
+      .hero-photo { right: 13px; }
+      .care-card { right: -1px; bottom: 0; }
+      .floating-tag { left: -3px; bottom: 58px; }
+      .trust-grid { grid-template-columns: 1fr 1fr; gap: 0; padding: 10px 0; }
+      .trust-item { min-height: 56px; justify-content: flex-start; padding-left: 7px; border-right: 0; }
+      .trust-item:nth-child(odd) { border-right: 1px solid rgba(32,59,49,.16); }
+      .trust-item span { font-size: 9px; }
+      section.content-section { padding: 72px 0; }
+      .section-heading { margin-bottom: 32px; }
+      .service-grid { gap: 10px; }
+      .service-card { min-height: 245px; padding: 18px 15px; }
+      .service-icon { margin-bottom: 22px; }
+      .service-card h3 { font-size: 17px; }
+      .service-card p { font-size: 9px; }
+      .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .about-visual { min-height: 390px; }
+      .about-photo { width: 84%; height: 365px; }
+      .about-copy h2 { font-size: 41px; }
+      .about-stamp { width: 98px; height: 98px; }
+      .about-points { gap: 14px 8px; }
+      .about-point { font-size: 9px; }
+      .cta { padding: 48px 0; }
+      .cta-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
+      .contact { grid-template-columns: 1fr; gap: 28px; }
+      .contact-copy h2 { font-size: 40px; }
+      .contact-form { gap: 12px; }
+      .field label { font-size: 8px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-links { flex-wrap: wrap; gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">A little more support can make all the difference. <a href="appointment.html">Let’s talk about care</a></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Vintageconcept Ltd home">
+        <img class="brand-logo" src="images/photo_5104954538862513421_y.jpg" alt="Vintage Concept Limited — Care That Honors Every Chapter">
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="services.html">Our care</a><a href="about.html">About us</a><a href="contact.html">Contact</a>
+        <a class="button" href="appointment.html">Arrange a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Care, with a little more heart</span>
+          <h1 class="serif">Professional care brought to your home.</h1>
+          <p>Brightening lives through care — compassionate care, personal support, delivered at home.</p>
+          <div class="hero-actions"><a class="button" href="appointment.html">Find the right care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="about.html">Get to know us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+          <div class="hero-note">
+            <!-- <div class="avatar-stack" aria-hidden="true"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=80&h=80&q=80" alt=""><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=80&h=80&q=80" alt=""><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt=""></div> -->
+            <span><strong>Kind people. Consistent care.</strong><br>Here for your family, too.</span></div>
+        </div>
+        <div class="hero-visual reveal">
+          <img class="hero-photo" src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100" alt="Caregiver sharing a warm moment with an older woman at home">
+          <div class="photo-outline" aria-hidden="true"></div>
+          <div class="floating-tag"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg></span>Care that feels personal</div>
+          <div class="care-card"><div class="care-card-top"><span class="care-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.4-8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/></svg></span><span class="stars">★★★★★</span></div><p>“They feel like part of our family.”</p><small>A little reassurance from one of our families</small></div>
+        </div>
+      </div>
+    </section>
+    <div class="trust-strip"><div class="wrap trust-grid">
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.4-8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg><span>Carefully selected carers</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Support on your schedule</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.4-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.6-8 11-8 11Z"/><path d="M9 12h6"/></svg><span>Care built around you</span></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg><span>Comfort of home</span></div>
+    </div></div>
+    <section class="content-section" id="care"><div class="wrap">
+      <div class="section-heading reveal"><span class="eyebrow">Here for the everyday</span><h2 class="serif">The right help, at the <em>right time.</em></h2><p>Some days need a little more support than others. We’ll listen first, then make a plan that feels right for you.</p></div>
+      <div class="service-grid">
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.4-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.6-8 11-8 11Z"/><path d="M9 12h6m-3-3v6"/></svg></div><h3>Personal care</h3><p>Gentle, respectful help with daily routines, always at your pace and in your way.</p><a href="personal-care.html" class="text-link">Explore personal care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></article>
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18v10H3zM5 10l2-6h10l2 6M7 14h.01M12 14h.01M17 14h.01M8 20v-3h8v3"/></svg></div><h3>Meals &amp; nutrition</h3><p>From a comforting home-cooked meal to a hand with the weekly shop.</p><a href="services.html" class="text-link">Explore meal support <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></article>
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v4H8zM6 7h12v14H6zM9 12h6m-6 4h6"/></svg></div><h3>Medication help</h3><p>Friendly reminders and practical support to help keep everything on track.</p><a href="medication.html" class="text-link">Explore medication help <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></article>
+        <article class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6m1-11a3 3 0 1 1 0 6m1 2c2.3.8 4 2.9 4 5"/></svg></div><h3>Companionship</h3><p>A familiar face for a chat, a favourite hobby or a lovely outing together.</p><a href="services.html" class="text-link">Explore companionship <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></article>
+      </div>
+    </div></section>
+    <section class="content-section about" id="about"><div class="wrap about-grid">
+      <div class="about-visual reveal"><div class="about-accent" aria-hidden="true"></div><img class="about-photo" src="https://images.pexels.com/photos/7551664/pexels-photo-7551664.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Care professional supporting an older man at home"><div class="about-stamp"><strong>1:1</strong><span>care, your way</span></div></div>
+      <div class="about-copy reveal"><span class="eyebrow">A little about us</span><h2 class="serif">Good care starts with <em>listening.</em></h2><p>Choosing care is a big, personal decision. We make time to understand what matters to you — the routines, the small comforts, the things that make a day feel like yours. Then we find a carer who feels like the right fit.</p><div class="about-points"><div class="about-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>One-to-one care plans</div><div class="about-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>Familiar faces, whenever possible</div><div class="about-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>Flexible visits to suit you</div><div class="about-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>Family kept in the loop</div></div><a class="button button--outline" href="about.html">Meet your care team <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+    </div></section>
+    <section class="content-section quote-section"><div class="wrap reveal"><div class="quote-mark">“</div><blockquote>“Mum looks forward to her visits now. It’s not just the help — it’s the kindness, the laughs, and having someone who really knows her.”</blockquote><div class="quote-by"><strong>Sarah, family member</strong> &nbsp;·&nbsp; Shared with permission</div></div></section>
+    <section class="cta"><div class="wrap cta-inner"><div><span class="eyebrow">No pressure, just a conversation</span><h2 class="serif">Let’s find a way to make life feel a little easier.</h2></div><a class="button" href="appointment.html">Talk with our care team <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div></section>
+    <section class="content-section" id="contact"><div class="wrap contact">
+      <div class="contact-copy"><span class="eyebrow">We’re easy to talk to</span><h2 class="serif">Tell us what would help.</h2><p>Share a little about what you’re looking for. A friendly member of our team will be in touch to talk things through.</p><div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.8a2 2 0 0 1-.6 1.7L7 10.1a16 16 0 0 0 6 6l1.9-1.9a2 2 0 0 1 1.7-.6l2.8.4a2 2 0 0 1 1.7 1.9Z"/></svg><span>Call us for a friendly chat</span></div><div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Or send us a note using the form</span></div></div>
+      <form class="contact-form" id="care-form">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="e.g. Jamie Taylor" required></div>
+        <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your best number" required></div>
+        <div class="field field--full"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+        <div class="field field--full"><label for="care-type">What kind of support are you looking for?</label><select id="care-type" name="care-type" required><option value="" disabled selected>Please select</option><option>Personal care</option><option>Meals and nutrition</option><option>Medication support</option><option>Companionship</option><option>Not sure yet — let's talk</option></select></div>
+        <div class="field field--full"><label for="message">Anything else you’d like us to know?</label><textarea id="message" name="message" placeholder="A few words is plenty (optional)"></textarea></div>
+        <button class="button" type="submit">Request a call back <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="images/photo_5104954538862513421_y.jpg" alt="Vintage Concept Limited — Care That Honors Every Chapter"></span><span class="brand-name">Vintageconcept Ltd</span></a><p>© <span id="year"></span> Vintageconcept Ltd. Care, with a little more heart.</p><div class="footer-links"><a href="services.html">Our care</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="apply.html">Careers</a></div></div></footer>
+  <script>
+    document.querySelectorAll('.brand').forEach((element) => {
+      element.innerHTML = '<img class="brand-logo" src="images/photo_5104954538862513421_y.jpg" alt="Vintage Concept Limited — Care That Honors Every Chapter" decoding="async">';
+    });
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+    }));
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    const form = document.querySelector('#care-form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      document.querySelector('#form-status').textContent = 'Thank you — your message is ready. Connect this form to your preferred email or booking service to receive enquiries.';
+      form.reset();
+    });
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>
